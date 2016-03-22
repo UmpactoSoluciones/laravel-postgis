@@ -80,6 +80,17 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     }
 
     /**
+     * Add a geometry column on the table
+     *
+     * @param   string  $column
+     * @return \Illuminate\Support\Fluent
+     */
+    public function geometry($column)
+    {
+        return $this->addColumn('geometry', $column);
+    }
+
+    /**
      * Add a geometrycollection column on the table
      *
      * @param      $column
