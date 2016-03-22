@@ -1,5 +1,5 @@
 {
-    "name": "umpacto/laravel-postgis",
+    "name": "UmpactoSoluciones/laravel-postgis",
     "description": "Postgis extensions for laravel. Aims to make it easy to work with geometries from laravel models, Thanks to Peter Haza from https://github.com/phaza/laravel-postgis.git",
     "repositories": [
         {
