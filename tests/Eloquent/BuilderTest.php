@@ -46,7 +46,7 @@ class BuilderTest extends BaseTestCase
     {
         $this->queryBuilder
           ->shouldReceive('raw')
-          ->with("ST_GeogFromText('POINT(2 1)')")
+          ->with("ST_GeomFromText('POINT(2 1)',4326)")
           ->andReturn(new Expression("ST_GeogFromText('POINT(2 1)')"));
 
         $this->queryBuilder
