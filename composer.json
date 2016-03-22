@@ -1,10 +1,10 @@
 {
-    "name": "phaza/laravel-postgis",
-    "description": "Postgis extensions for laravel. Aims to make it easy to work with geometries from laravel models",
+    "name": "umpacto/laravel-postgis",
+    "description": "Postgis extensions for laravel. Aims to make it easy to work with geometries from laravel models, Thanks to Peter Haza from https://github.com/phaza/laravel-postgis.git",
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/phaza/laravel-postgres.git"
+            "url": "https://github.com/UmpactoSoluciones/laravel-postgis.git"
         }
     ],
     "require": {
@@ -18,7 +18,6 @@
         "phpunit/phpunit": "~4.5",
         "mockery/mockery": "0.9.*",
         "satooshi/php-coveralls": "~0.6",
-        "codeclimate/php-test-reporter": "dev-master",
         "illuminate/pagination": "~5.0"
     },
     "autoload": {
@@ -37,6 +36,10 @@
         {
             "name": "Peter Haza",
             "email": "peter.haza@gmail.com"
+        },
+        {
+          "name": "Roberto Armas",
+          "email": "rarmas@umpacto.com"
         }
     ]
 }
