@@ -33,12 +33,8 @@ class PostgisTraitTest extends BaseTestCase
     {
         $this->model->point = new Point(1, 2);
         $this->model->save();
+        $this->assertContains("public.ST_GeomFromText('POINT(2 1)',4326)", $this->queries[0]);
 
-<<<<<<< HEAD
-        $this->assertContains("ST_GeomFromText('POINT(2 1)', 4326)", $this->queries[0]);
-=======
-        $this->assertContains("public.ST_GeogFromText('POINT(2 1)')", $this->queries[0]);
->>>>>>> njbarrett/master
     }
 
     public function testUpdatePointHasCorrectSql()
@@ -46,12 +42,7 @@ class PostgisTraitTest extends BaseTestCase
         $this->model->exists = true;
         $this->model->point = new Point(2, 4);
         $this->model->save();
-
-<<<<<<< HEAD
-        $this->assertContains("ST_GeomFromText('POINT(4 2)',4326)", $this->queries[0]);
-=======
-        $this->assertContains("public.ST_GeogFromText('POINT(4 2)')", $this->queries[0]);
->>>>>>> njbarrett/master
+        $this->assertContains("public.ST_GeomFromText('POINT(4 2)',4326)", $this->queries[0]);
     }
 }
 
