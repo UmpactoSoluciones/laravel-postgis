@@ -23,15 +23,13 @@ trait PostgisTrait
 
     protected function performInsert(EloquentBuilder $query, array $options = [])
     {
-        foreach ($this->attributes as $key => &$value) {
-            // if ($value instanceof GeometryInterface && ! $value instanceof GeometryCollection) {
-            //     $this->geometries[$key] = $value; //Preserve the geometry objects prior to the insert
-            //     $value = $this->getConnection()->raw(sprintf("ST_GeogFromText('%s')", $value->toWKT()));
-            // }  else if ($value instanceof GeometryInterface && $value instanceof GeometryCollection) {
-            if($value instanceof GeometryInterface)
-            {
-              $this->geometries[$key] = $value; //Preserve the geometry objects prior to the insert
-              $value = $this->getConnection()->raw(sprintf("ST_GeomFromText('%s', 4326)", $value->toWKT()));
+        foreach ($this->attributes as $key => $value) {
+            if ($value instanceof GeometryInterface && ! $value instanceof GeometryCollection) {
+                $this->geometries[$key] = $value; //Preserve the geometry objects prior to the insert
+                $this->attributes[$key] = $this->getConnection()->raw(sprintf("public.ST_GeogFromText('%s')", $value->toWKT()));
+            }  else if ($value instanceof GeometryInterface && $value instanceof GeometryCollection) {
+                $this->geometries[$key] = $value; //Preserve the geometry objects prior to the insert
+                $this->attributes[$key] = $this->getConnection()->raw(sprintf("public.ST_GeomFromText('%s', 4326)", $value->toWKT()));
             }
             // }
         }
@@ -55,7 +53,7 @@ trait PostgisTrait
             }
         }
 
-        parent::setRawAttributes($attributes, $sync);
+        return parent::setRawAttributes($attributes, $sync);
     }
 
     public function getPostgisFields()

@@ -1,9 +1,9 @@
 Laravel postgis extension
 =========================
 
-[![Build Status](https://travis-ci.org/phaza/laravel-postgis.svg?branch=master)](https://travis-ci.org/phaza/laravel-postgis)
-[![Code Climate](https://codeclimate.com/github/phaza/laravel-postgis/badges/gpa.svg)](https://codeclimate.com/github/phaza/laravel-postgis)
-[![Coverage Status](https://coveralls.io/repos/phaza/laravel-postgis/badge.svg)](https://coveralls.io/r/phaza/laravel-postgis)
+[![Build Status](https://travis-ci.org/njbarrett/laravel-postgis.svg?branch=master)](https://travis-ci.org/njbarrett/laravel-postgis.svg?branch=master)
+[![Code Climate](https://codeclimate.com/github/njbarrett/laravel-postgis/badges/gpa.svg)](https://codeclimate.com/github/njbarrett/laravel-postgis)
+[![Coverage Status](https://coveralls.io/repos/github/njbarrett/laravel-postgis/badge.svg?branch=master)](https://coveralls.io/github/njbarrett/laravel-postgis?branch=master)
 
 ## Features
 
@@ -15,8 +15,10 @@ Laravel postgis extension
  * Geometry functions on the geometry classes (contains(), equals(), distance(), etc… (HELP!))
 
 ## Versions
-Use 2.* for Laravel 5.1.*  
-Use 3.* for Laravel 5.2.*
+- Use 2.* for Laravel 5.1.*
+- Use 3.* for Laravel 5.2.*
+- Use 3.* for Laravel 5.3.*
+- Use 3.* for Laravel 5.4.*
 
 ## Installation
 
@@ -124,8 +126,8 @@ class Location extends Model
     ];
 
     protected $postgisFields = [
-        Point::class,
-        Polygon::class,
+        'location',
+        'polygon',
     ];
 
 }

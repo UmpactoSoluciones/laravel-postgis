@@ -34,7 +34,11 @@ class PostgisTraitTest extends BaseTestCase
         $this->model->point = new Point(1, 2);
         $this->model->save();
 
+<<<<<<< HEAD
         $this->assertContains("ST_GeomFromText('POINT(2 1)', 4326)", $this->queries[0]);
+=======
+        $this->assertContains("public.ST_GeogFromText('POINT(2 1)')", $this->queries[0]);
+>>>>>>> njbarrett/master
     }
 
     public function testUpdatePointHasCorrectSql()
@@ -43,7 +47,11 @@ class PostgisTraitTest extends BaseTestCase
         $this->model->point = new Point(2, 4);
         $this->model->save();
 
+<<<<<<< HEAD
         $this->assertContains("ST_GeomFromText('POINT(4 2)',4326)", $this->queries[0]);
+=======
+        $this->assertContains("public.ST_GeogFromText('POINT(4 2)')", $this->queries[0]);
+>>>>>>> njbarrett/master
     }
 }
 
@@ -102,6 +110,7 @@ class TestPDO extends PDO
         $this->queries[] = $statement;
 
         $stmt = m::mock('PDOStatement');
+        $stmt->shouldReceive('bindValue')->zeroOrMoreTimes();
         $stmt->shouldReceive('execute');
         $stmt->shouldReceive('fetchAll')->andReturn([['id' => 1, 'point' => 'POINT(1 2)']]);
         $stmt->shouldReceive('rowCount')->andReturn(1);
